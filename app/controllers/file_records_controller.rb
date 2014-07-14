@@ -10,6 +10,8 @@ class FileRecordsController < ApplicationController
   # GET /file_records/1
   # GET /file_records/1.json
   def show
+    #definir @step para poder usarlo en el form del show
+    @step = @file_record.steps.build
   end
 
   # GET /file_records/new
@@ -28,6 +30,9 @@ class FileRecordsController < ApplicationController
 
     respond_to do |format|
       if @file_record.save
+        #office = Office.first!
+        #@file_record.steps.create!({ :office => office })
+        #@file_record.save_step 
         format.html { redirect_to @file_record, notice: 'File record was successfully created.' }
         format.json { render :show, status: :created, location: @file_record }
       else
@@ -70,5 +75,9 @@ class FileRecordsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def file_record_params
       params.require(:file_record).permit(:title)
+    end
+    
+    def set_user
+      @user = 'usuario'
     end
 end

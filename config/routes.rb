@@ -5,11 +5,10 @@ Rails.application.routes.draw do
 
   resources :offices
 
-  resources :file_records
-
-  root 'offices#index'
-
-
+  resources :file_records do
+    resources :steps
+    post 'archivate' 
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

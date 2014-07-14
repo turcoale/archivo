@@ -1,18 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>File record:</strong>
-  <%= @step.file_record %>
+  <% if @step.file_record %>
+    <strong>File record:</strong>
+    <%= @step.file_record.title %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Person:</strong>
-  <%= @step.person %>
+  <% if @step.person %>
+    <strong>Person:</strong>
+    <%= @step.person.name %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Office:</strong>
-  <%= @step.office %>
+  <% if @step.office %>
+    <strong>Office:</strong>
+    <%= @step.office.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_step_path(@step) %> |
